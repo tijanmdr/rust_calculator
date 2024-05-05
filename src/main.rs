@@ -1,4 +1,4 @@
-use std::io::{self, stdout};
+use std::io;
 
 fn main() {
     let mut x: String = String::new();
@@ -39,9 +39,17 @@ fn main() {
             return;
         }
     };
-    if op == 1 {
-        res = x + y;
+    match op {
+        1 => res = x+y,
+        2 => res = x-y,
+        3 => res = x*y,
+        4 => res = x/y, 
+        5=> {
+        }, _ => {
+            println!("Invalid Selection!");
+            return;
+        }
     }
 
-    println!("{}", res);
+    println!("Result: {}", res);
 }
