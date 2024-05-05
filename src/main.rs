@@ -4,12 +4,12 @@ fn main() {
     let mut x: String = String::new();
     let mut y: String = String::new();
     let mut op: String = String::new();
-    let mut res: i32 = 0;
+    let mut res: f64 = 0.0;
 
     println!("Enter the first number: ");
     io::stdin().read_line(&mut x).expect("Invalid Input");
 
-    let x: i32 = match x.trim().parse() {
+    let x: f64 = match x.trim().parse() {
         Ok(num) => num, 
         Err(_)=> {
             println!("Invalid first number!");
@@ -20,7 +20,7 @@ fn main() {
     println!("Enter the second number: ");
     io::stdin().read_line(&mut y).expect("Invalid Input");
 
-    let y: i32 = match y.trim().parse() {
+    let y: f64 = match y.trim().parse() {
         Ok(num) => num,
         Err(_) => {
             println!("Invalid second number!");
@@ -40,10 +40,10 @@ fn main() {
         }
     };
     match op {
-        1 => res = x+y,
-        2 => res = x-y,
-        3 => res = x*y,
-        4 => res = x/y, 
+        1 => res = add(x, y),
+        2 => res = sub(x, y),
+        3 => res = mul(x, y),
+        4 => res = div(x, y), 
         5=> {
         }, _ => {
             println!("Invalid Selection!");
@@ -52,4 +52,20 @@ fn main() {
     }
 
     println!("Result: {}", res);
+}
+
+fn add (x: f64, y: f64) -> f64{
+    return x + y;
+}
+
+fn sub (x: f64, y: f64) -> f64{
+    return x - y;
+}
+
+fn mul (x: f64, y: f64) -> f64{
+    return x * y;
+}
+
+fn div (x: f64, y: f64) -> f64{
+    return x / y;
 }
