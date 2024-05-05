@@ -4,7 +4,7 @@ fn main() {
     let mut x: String = String::new();
     let mut y: String = String::new();
     let mut op: String = String::new();
-    let res: i32;
+    let mut res: i32 = 0;
 
     println!("Enter the first number: ");
     io::stdin().read_line(&mut x).expect("Invalid Input");
@@ -39,6 +39,9 @@ fn main() {
             return;
         }
     };
+    if op == 1 {
+        res = x + y;
+    }
 
-
+    println!("{}", res);
 }
